@@ -1,494 +1,305 @@
-export default {
-  items: [
-    {
-      name: 'Dashboard',
-      url: '/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
+import React from 'react'
+import CIcon from '@coreui/icons-react'
+import {
+  cilBell,
+  cilCalculator,
+  cilChartPie,
+  cilCursor,
+  cilDescription,
+  cilDrop,
+  cilNotes,
+  cilPencil,
+  cilPuzzle,
+  cilSpeedometer,
+  cilStar,
+} from '@coreui/icons'
+import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+
+const _nav = [
+  {
+    component: CNavItem,
+    name: 'Dashboard',
+    to: '/dashboard',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    },
+  },
+  {
+    component: CNavTitle,
+    name: 'Theme',
+  },
+  {
+    component: CNavItem,
+    name: 'Colors',
+    to: '/theme/colors',
+    icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Typography',
+    to: '/theme/typography',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavTitle,
+    name: 'Components',
+  },
+  {
+    component: CNavGroup,
+    name: 'Base',
+    to: '/base',
+    icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Accordion',
+        to: '/base/accordion',
       },
-    },
-    {
-      title: true,
-      name: 'Theme',
-      wrapper: {            // optional wrapper object
-        element: '',        // required valid HTML5 element tag
-        attributes: {}        // optional valid JS object with JS API naming ex: { className: "my-class", style: { fontFamily: "Verdana" }, id: "my-id"}
+      {
+        component: CNavItem,
+        name: 'Breadcrumb',
+        to: '/base/breadcrumbs',
       },
-      class: ''             // optional class names space delimited list for title item ex: "text-center"
-    },
-    {
-      name: 'Colors',
-      url: '/theme/colors',
-      icon: 'icon-drop',
-    },
-    {
-      name: 'Typography',
-      url: '/theme/typography',
-      icon: 'icon-pencil',
-    },
-    {
-      title: true,
-      name: 'Components',
-      wrapper: {
-        element: '',
-        attributes: {},
+      {
+        component: CNavItem,
+        name: 'Cards',
+        to: '/base/cards',
       },
-    },
-    {
-      name: 'Base',
-      url: '/base',
-      icon: 'icon-puzzle',
-      children: [
-        {
-          name: 'Breadcrumbs',
-          url: '/base/breadcrumbs',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Cards',
-          url: '/base/cards',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Carousel',
-          url: '/base/carousels',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Collapse',
-          url: '/base/collapses',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Dropdowns',
-          url: '/base/dropdowns',
-          icon: 'icon-puzzle'
-        },
-        {
-          name: 'Jumbotrons',
-          url: '/base/jumbotrons',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'List group',
-          url: '/base/list-groups',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Navs',
-          url: '/base/navs',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Paginations',
-          url: '/base/paginations',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Popovers',
-          url: '/base/popovers',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Progress Bar',
-          url: '/base/progress-bar',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Switches',
-          url: '/base/switches',
-          icon: 'icon-puzzle'
-        },
-        {
-          name: 'Spinners',
-          url: '/base/spinners',
-          icon: 'fa fa-circle-o-notch',
-          badge: {
-            variant: 'info',
-            text: 'NEW',
-          },
-        },
-        {
-          name: 'Tabs',
-          url: '/base/tabs',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Tooltips',
-          url: '/base/tooltips',
-          icon: 'icon-puzzle',
-        },
-      ],
-    },
-    {
-      name: 'Buttons',
-      url: '/buttons',
-      icon: 'icon-cursor',
-      children: [
-        {
-          name: 'Buttons',
-          url: '/buttons/buttons',
-          icon: 'icon-cursor',
-        },
-        {
-          name: 'Brand Buttons',
-          url: '/buttons/brand-buttons',
-          icon: 'icon-cursor',
-        },
-        {
-          name: 'Button groups',
-          url: '/buttons/button-groups',
-          icon: 'icon-cursor',
-        },
-        {
-          name: 'Dropdowns',
-          url: '/buttons/button-dropdowns',
-          icon: 'icon-cursor',
-        },
-        {
-          name: 'Loading Buttons',
-          url: '/buttons/loading-buttons',
-          icon: 'icon-cursor',
-          badge: {
-            variant: 'danger',
-            text: 'PRO',
-          },
-        },
-      ],
-    },
-    {
-      name: 'Charts',
-      url: '/charts',
-      icon: 'icon-pie-chart'
-    },
-    {
-      name: 'Editors',
-      url: '/editors',
-      icon: 'fa fa-code',
-      children: [
-        {
-          name: 'Code Editors',
-          url: '/editors/code-editors',
-          icon: 'fa fa-code',
-          badge: {
-            variant: 'danger',
-            text: 'PRO',
-          },
-        },
-        {
-          name: 'Text Editors',
-          url: '/editors/text-editors',
-          icon: 'icon-note',
-          badge: {
-            variant: 'danger',
-            text: 'PRO',
-          },
-        }
-      ]
-    },
-    {
-      name: 'Forms',
-      url: '/forms',
-      icon: 'icon-note',
-      children: [
-        {
-          name: 'Basic Forms',
-          url: '/forms/basic-forms',
-          icon: 'icon-note'
-        },
-        {
-          name: 'Advanced Forms',
-          url: '/forms/advanced-forms',
-          icon: 'icon-note',
-          badge: {
-            variant: 'danger',
-            text: 'PRO'
-          }
-        },
-        {
-          name: 'Validation',
-          url: '/forms/validation-forms',
-          icon: 'icon-note',
-          badge: {
-            variant: 'danger',
-            text: 'PRO'
-          }
-        }
-      ]
-    },
-    {
-      name: 'Google Maps',
-      url: '/google-maps',
-      icon: 'icon-map',
-      badge: {
-        variant: 'danger',
-        text: 'PRO'
-      }
-    },
-    {
-      name: 'Icons',
-      url: '/icons',
-      icon: 'icon-star',
-      children: [
-        {
-          name: 'CoreUI Icons',
-          url: '/icons/coreui-icons',
-          icon: 'icon-star',
-          badge: {
-            variant: 'info',
-            text: 'NEW',
-          },
-        },
-        {
-          name: 'Flags',
-          url: '/icons/flags',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Font Awesome',
-          url: '/icons/font-awesome',
-          icon: 'icon-star',
-          badge: {
-            variant: 'secondary',
-            text: '4.7',
-          },
-        },
-        {
-          name: 'Simple Line Icons',
-          url: '/icons/simple-line-icons',
-          icon: 'icon-star',
-        },
-      ],
-    },
-    {
-      name: 'Notifications',
-      url: '/notifications',
-      icon: 'icon-bell',
-      children: [
-        {
-          name: 'Alerts',
-          url: '/notifications/alerts',
-          icon: 'icon-bell',
-        },
-        {
-          name: 'Badges',
-          url: '/notifications/badges',
-          icon: 'icon-bell',
-        },
-        {
-          name: 'Modals',
-          url: '/notifications/modals',
-          icon: 'icon-bell'
-        },
-        {
-          name: 'Toastr',
-          url: '/notifications/toastr',
-          icon: 'icon-bell',
-          badge: {
-            variant: 'danger',
-            text: 'PRO'
-          }
-        }
-      ]
-    },
-    {
-      name: 'Plugins',
-      url: '/plugins',
-      icon: 'icon-energy',
-      children: [
-        {
-          name: 'Calendar',
-          url: '/plugins/calendar',
-          icon: 'icon-calendar',
-          badge: {
-            variant: 'danger',
-            text: 'PRO'
-          }
-        },
-        {
-          name: 'Draggable',
-          url: '/plugins/draggable',
-          icon: 'icon-cursor-move',
-          badge: {
-            variant: 'danger',
-            text: 'PRO'
-          }
-        },
-        {
-          name: 'Spinners',
-          url: '/plugins/spinners',
-          icon: 'fa fa-spinner',
-          badge: {
-            variant: 'danger',
-            text: 'PRO'
-          }
-        }
-      ]
-        },
-    {
-      name: 'Tables',
-      url: '/tables',
-      icon: 'icon-list',
-      children: [
-        {
-          name: 'Data Table',
-          url: '/tables/data-table',
-          icon: 'icon-list',
-          badge: {
-            variant: 'danger',
-            text: 'PRO'
-          }
-        },
-        {
-          name: 'Tables',
-          url: '/tables/tables',
-          icon: 'icon-list'
-        }
-      ]
-    },
-    {
-      name: 'Widgets',
-      url: '/widgets',
-      icon: 'icon-calculator',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
+      {
+        component: CNavItem,
+        name: 'Carousel',
+        to: '/base/carousels',
       },
-    },
-    {
-      divider: true,
-    },
-    {
-      title: true,
-      name: 'Extras',
-    },
-    {
-      name: 'Pages',
-      url: '/pages',
-      icon: 'icon-star',
-      children: [
-        {
-          name: 'Login',
-          url: '/login',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Register',
-          url: '/register',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Error 404',
-          url: '/404',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Error 500',
-          url: '/500',
-          icon: 'icon-star',
-        },
-      ],
-    },
-    {
-      name: 'Disabled',
-      url: '/dashboard',
-      icon: 'icon-ban',
-      badge: {
-        variant: 'secondary',
-        text: 'NEW',
+      {
+        component: CNavItem,
+        name: 'Collapse',
+        to: '/base/collapses',
       },
-      attributes: { disabled: true },
-    },
-    {
-      name: 'Apps',
-      url: '/apps',
-      icon: 'icon-layers',
-      children: [
-        {
-          name: 'Invoicing',
-          url: '/apps/invoicing',
-          icon: 'icon-speech',
-          children: [
-            {
-              name: 'Invoice',
-              url: '/apps/invoicing/invoice',
-              icon: 'icon-speech',
-              badge: {
-                variant: 'danger',
-                text: 'PRO'
-              }
-            }
-          ]
-        },
-        {
-          name: 'Email',
-          url: '/apps/email',
-          icon: 'icon-speech',
-          children: [
-            {
-              name: 'Inbox',
-              url: '/apps/email/inbox',
-              icon: 'icon-speech',
-              badge: {
-                variant: 'danger',
-                text: 'PRO',
-              },
-            },
-            {
-              name: 'Message',
-              url: '/apps/email/message',
-              icon: 'icon-speech',
-              badge: {
-                variant: 'danger',
-                text: 'PRO',
-              },
-            },
-            {
-              name: 'Compose',
-              url: '/apps/email/compose',
-              icon: 'icon-speech',
-              badge: {
-                variant: 'danger',
-                text: 'PRO',
-              },
-            },
-          ],
-        },
-      ]
-    },
-    {
-      divider: true,
-      class: 'm-2'
-    },
-    {
-      title: true,
-      name: 'Labels'
-    },
-    {
-      name: 'Label danger',
-      url: '',
-      icon: 'fa fa-circle',
-      label: {
-        variant: 'danger'
+      {
+        component: CNavItem,
+        name: 'List group',
+        to: '/base/list-groups',
       },
+      {
+        component: CNavItem,
+        name: 'Navs & Tabs',
+        to: '/base/navs',
+      },
+      {
+        component: CNavItem,
+        name: 'Pagination',
+        to: '/base/paginations',
+      },
+      {
+        component: CNavItem,
+        name: 'Placeholders',
+        to: '/base/placeholders',
+      },
+      {
+        component: CNavItem,
+        name: 'Popovers',
+        to: '/base/popovers',
+      },
+      {
+        component: CNavItem,
+        name: 'Progress',
+        to: '/base/progress',
+      },
+      {
+        component: CNavItem,
+        name: 'Spinners',
+        to: '/base/spinners',
+      },
+      {
+        component: CNavItem,
+        name: 'Tables',
+        to: '/base/tables',
+      },
+      {
+        component: CNavItem,
+        name: 'Tooltips',
+        to: '/base/tooltips',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Buttons',
+    to: '/buttons',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Buttons',
+        to: '/buttons/buttons',
+      },
+      {
+        component: CNavItem,
+        name: 'Buttons groups',
+        to: '/buttons/button-groups',
+      },
+      {
+        component: CNavItem,
+        name: 'Dropdowns',
+        to: '/buttons/dropdowns',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Forms',
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Form Control',
+        to: '/forms/form-control',
+      },
+      {
+        component: CNavItem,
+        name: 'Select',
+        to: '/forms/select',
+      },
+      {
+        component: CNavItem,
+        name: 'Checks & Radios',
+        to: '/forms/checks-radios',
+      },
+      {
+        component: CNavItem,
+        name: 'Range',
+        to: '/forms/range',
+      },
+      {
+        component: CNavItem,
+        name: 'Input Group',
+        to: '/forms/input-group',
+      },
+      {
+        component: CNavItem,
+        name: 'Floating Labels',
+        to: '/forms/floating-labels',
+      },
+      {
+        component: CNavItem,
+        name: 'Layout',
+        to: '/forms/layout',
+      },
+      {
+        component: CNavItem,
+        name: 'Validation',
+        to: '/forms/validation',
+      },
+    ],
+  },
+  {
+    component: CNavItem,
+    name: 'Charts',
+    to: '/charts',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavGroup,
+    name: 'Icons',
+    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'CoreUI Free',
+        to: '/icons/coreui-icons',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        component: CNavItem,
+        name: 'CoreUI Flags',
+        to: '/icons/flags',
+      },
+      {
+        component: CNavItem,
+        name: 'CoreUI Brands',
+        to: '/icons/brands',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Notifications',
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Alerts',
+        to: '/notifications/alerts',
+      },
+      {
+        component: CNavItem,
+        name: 'Badges',
+        to: '/notifications/badges',
+      },
+      {
+        component: CNavItem,
+        name: 'Modal',
+        to: '/notifications/modals',
+      },
+      {
+        component: CNavItem,
+        name: 'Toasts',
+        to: '/notifications/toasts',
+      },
+    ],
+  },
+  {
+    component: CNavItem,
+    name: 'Widgets',
+    to: '/widgets',
+    icon: <CIcon icon={cilCalculator} customClassName="nav-icon" />,
+    badge: {
+      color: 'info',
+      text: 'NEW',
     },
-    {
-      name: 'Label info',
-      url: '',
-      icon: 'fa fa-circle',
-      label: {
-        variant: 'info'
-      }
-    },
-    {
-      name: 'Label warning',
-      url: '',
-      icon: 'fa fa-circle',
-      label: {
-        variant: 'warning'
-      }
-    },
-  ]
-};
+  },
+  {
+    component: CNavTitle,
+    name: 'Extras',
+  },
+  {
+    component: CNavGroup,
+    name: 'Pages',
+    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Login',
+        to: '/login',
+      },
+      {
+        component: CNavItem,
+        name: 'Register',
+        to: '/register',
+      },
+      {
+        component: CNavItem,
+        name: 'Error 404',
+        to: '/404',
+      },
+      {
+        component: CNavItem,
+        name: 'Error 500',
+        to: '/500',
+      },
+    ],
+  },
+  {
+    component: CNavItem,
+    name: 'Docs',
+    href: 'https://coreui.io/react/docs/templates/installation/',
+    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
+  },
+]
+
+export default _nav
